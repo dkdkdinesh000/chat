@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <style>
+        #WACContainer.WACContainer .myAwesomeClass {
+            background: hotpink;
+            color: indigo;
+        }
+
+        #WACContainer.WACContainer {
+
+            /* Will NOT compile correctly. */
+            @font-face {
+                font-family: myFirstFont;
+                src: url(sansation_light.woff);
+            }
+
+            /* Will NOT compile correctly. */
+            @keyframes example {
+                from {
+                    background-color: red;
+                }
+
+                to {
+                    background-color: yellow;
+                }
+            }
+
+            /* Will compile correctly. */
+            .myAwesomeClass {
+                background: hotpink;
+                color: indigo;
+            }
+        }
+    </style> -->
+</head>
+
+<body scroll="no" style="overflow: hidden">
+    <div class="chatElement"></div>
+    <script>
+        const element = document.querySelector('.chatElement');
+
+        window.watsonAssistantChatOptions = {
+            // Provide the custom element.
+            element: element,
+            // Hide the close button since we want it always open.
+            hideCloseButton: true,
+            // Hide the default launcher.
+            showLauncher: false,
+            // Make the window open by default.
+            openChatByDefault: true,
+            integrationID: "c1747ac1-a8b5-4f12-9d3a-489da01bbc76", // The ID of this integration.
+            region: "au-syd", // The region your integration is hosted in.
+            serviceInstanceID: "7f7cd6db-74e8-4eb3-8f59-c1b3e6719662", // The ID of your service instance.
+            // hideCloseButton: true,
+            // openChatByDefault: true,
+            onLoad: function (instance) {
+                instance.render();
+                instance.watsonAssistantChatOptions
+                // const customPanel = instance.customPanels.getPanel();
+                // const panelOptions = {
+                //     "title": "Chat ",
+                // };
+
+                // customPanel.open(panelOptions);
+
+                // const customPanel = instance.customPanels.getPanel();
+                // const panelOptions = {
+                //     "title": "",
+                // };
+
+                // customPanel.open(panelOptions);
+                // instance.openWindow();
+
+                instance.updateCSSVariables({
+                    '$active-primary': '#009900',
+                    '$focus': '#008000',
+                    '$hover-primary': '#00ff00',
+                    '$interactive-01': '#008000',
+                    '$ui-01': '#ffffff'
+                });
+                //instance.writeableElements.headerBottomElement.innerHTML = '<div class="my-awesome-class">Disclaimer text...</div>';
+
+                // instance.updateHomeScreenConfig({
+                //     is_on: true,
+                //     greeting: 'Welcome! Please ask us a question.',
+                //     starters: {
+                //         is_on: true,
+                //         buttons: [
+                //             {
+                //                 label: 'Open a new brokerage account',
+                //             },
+                //             {
+                //                 label: 'Open a new savings account',
+                //             },
+                //             {
+                //                 label: 'Open a new checking account',
+                //             }
+                //         ]
+                //     }
+                // });
+            }
+        };
+        setTimeout(function () {
+            const t = document.createElement('script');
+            t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"
+            document.head.appendChild(t);
+        });
+    </script>
+</body>
+
+</html>
